@@ -1,3 +1,4 @@
+![spencer](https://user-images.githubusercontent.com/43321848/229360607-38ab76e7-569f-4c26-b19e-4ae51d214a72.png)
 # Meet-Eat
 No more eating alone — Connect with fellow students over meals! Our app matches you with like-minded peers based on dining location and time.
 #The Problem
