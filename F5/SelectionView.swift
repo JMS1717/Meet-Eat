@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseDatabase
 import ConfettiSwiftUI
+import ActionButton
 
 struct Person: Identifiable, Codable, Hashable {
     var dining: String
@@ -71,6 +72,9 @@ struct SelectionView: View {
     var selectedHall: DiningHall
     @State private var date = Date()
     @State private var showSelectedPerson = 0
+    @State private var letsEat: ActionButtonState = .enabled(title: "Let's eat!", systemImage: "fork.knife")
+    @State private var reRoll: ActionButtonState = .enabled(title: "Reroll", systemImage: "arrow.counterclockwise")
+    @State private var continueButton: ActionButtonState = .enabled(title: "Continue", systemImage: "arrow.foward")
     @StateObject private var viewModel = PersonViewModel()
     @State private var shownPersons: Set<Person> = []
     @State private var match: Person? = nil
@@ -123,32 +127,30 @@ struct SelectionView: View {
                 VStack(spacing: 10) {
                     if let randomPerson {
                         AsyncImage(url: URL(string: match.imageurl))
+                            .scaleEffect(0.75)
                         
                         Text("Name: \(match.name)")
                         Text("Gender: \(match.gender)")
                         Text("Interests: \(match.interests.joined(separator: " "))")
-                        
-                        VStack {
-                            Button("Let's eat!") {
-                                showSelectedPerson += 1
+                     
+                        ActionButton(state: $letsEat, onTap: {
+                            letsEat = .loading(title: "Waiting For User", systemImage: "bolt")
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                                showSelectedPerson = 1
                             }
-                            .frame(maxWidth: 250, maxHeight: 100)
-                            .background(.blue)
-                            .cornerRadius(20)
-                            .padding(.horizontal)
+                        }, backgroundColor: .blue)
+                        .frame(maxWidth: 250)
                                 
-                        }
-                        VStack {
-                            Button("Reroll") {
+                        ActionButton(state: $reRoll, onTap: {
+                            reRoll = .loading(title: "Finding Someone", systemImage: "bolt")
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                 self.match = randomPerson
+                                reRoll = .enabled(title: "Reroll", systemImage: "arrow.counterclockwise")
                             }
-                            .onChange(of: match) { newPerson in
-                                shownPersons.insert(newPerson)
-                            }
-                            .frame(maxWidth: 100, maxHeight: 20)
-                            .background(.blue)
-                            .cornerRadius(20)
-                            .padding(.horizontal)
+                        }, backgroundColor: .blue)
+                        .frame(maxWidth: 250)
+                        .onChange(of: match) { newPerson in
+                            shownPersons.insert(newPerson)
                         }
                    } else {
                        Text("No more people available")
@@ -173,17 +175,14 @@ struct SelectionView: View {
                     .datePickerStyle(.wheel)
                     .colorInvert()
                     
-                    Button(action: {
-                        match = randomPerson
-                    }) {
-                        Text("Continue")
-                            .font(.headline)
-                            .colorInvert()
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: 50)
-                    .background(.white)
-                    .cornerRadius(20)
-                    .padding(.horizontal)
+                    ActionButton(state: $continueButton, onTap: {
+                        continueButton = .loading(title: "Loading", systemImage: "bolt")
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            match = randomPerson
+                        }
+                    }, backgroundColor: .teal)
+//                    .colorInvert()
+                    .frame(maxWidth: 250)
                 }
             }
             else {

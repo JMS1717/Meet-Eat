@@ -21,6 +21,7 @@
 		94D3848D29D9DCBA000CACF5 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D3848C29D9DCBA000CACF5 /* AboutView.swift */; };
 		94D3849029D9DE9E000CACF5 /* Swizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D3848F29D9DE9E000CACF5 /* Swizzler.m */; };
 		94D3849329D9DF97000CACF5 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D3849229D9DF97000CACF5 /* LogoView.swift */; };
+		94EEC8A329D9F11300C0B335 /* ActionButton in Frameworks */ = {isa = PBXBuildFile; productRef = 94EEC8A229D9F11300C0B335 /* ActionButton */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 			files = (
 				94D3848B29D9D73C000CACF5 /* ConfettiSwiftUI in Frameworks */,
 				94A545E229D918AC000AF76E /* FirebaseDatabaseSwift in Frameworks */,
+				94EEC8A329D9F11300C0B335 /* ActionButton in Frameworks */,
 				94A545DB29D8F326000AF76E /* ConcentricOnboarding in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +120,7 @@
 				94A545DA29D8F326000AF76E /* ConcentricOnboarding */,
 				94A545E129D918AC000AF76E /* FirebaseDatabaseSwift */,
 				94D3848A29D9D73C000CACF5 /* ConfettiSwiftUI */,
+				94EEC8A229D9F11300C0B335 /* ActionButton */,
 			);
 			productName = F5;
 			productReference = 94A545C129D8C481000AF76E /* F5.app */;
@@ -152,6 +155,7 @@
 				94A545D929D8F326000AF76E /* XCRemoteSwiftPackageReference "ConcentricOnboarding" */,
 				94A545E029D918AC000AF76E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				94D3848929D9D73C000CACF5 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+				94EEC8A129D9F11300C0B335 /* XCRemoteSwiftPackageReference "action-button" */,
 			);
 			productRefGroup = 94A545C229D8C481000AF76E /* Products */;
 			projectDirPath = "";
@@ -320,12 +324,14 @@
 				DEVELOPMENT_TEAM = YQ88248YH4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Meet & Eat";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We are using the camera to upload a profile picture.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -353,12 +359,14 @@
 				DEVELOPMENT_TEAM = YQ88248YH4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Meet & Eat";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We are using the camera to upload a profile picture.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -421,6 +429,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		94EEC8A129D9F11300C0B335 /* XCRemoteSwiftPackageReference "action-button" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftui-library/action-button";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -438,6 +454,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 94D3848929D9D73C000CACF5 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
 			productName = ConfettiSwiftUI;
+		};
+		94EEC8A229D9F11300C0B335 /* ActionButton */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94EEC8A129D9F11300C0B335 /* XCRemoteSwiftPackageReference "action-button" */;
+			productName = ActionButton;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
